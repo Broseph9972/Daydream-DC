@@ -55,7 +55,7 @@ text = "Options"
 [node name="Click Me Button" type="Button" parent="HBoxContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Click Me"
+text = "Click me (reccomended)"
 script = ExtResource("3_2sdm5")
 
 [node name="Info" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
@@ -79,3 +79,5 @@ size_flags_horizontal = 3
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("1_ascc0")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Click Me Button" to="HBoxContainer/VBoxContainer/Buttons/Click Me Button" method="_on_click_me_button_pressed"]
