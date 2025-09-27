@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq7ekafj5mu0e"]
+[gd_scene load_steps=5 format=3 uid="uid://dq7ekafj5mu0e"]
 
 [ext_resource type="Script" uid="uid://dwadkoaevwlk0" path="res://scripts/Title.gd" id="1_3pqwv"]
 [ext_resource type="Texture2D" uid="uid://ylhp3oos7ejr" path="res://icon.svg" id="1_ascc0"]
 [ext_resource type="Script" uid="uid://qo0ig7bc081s" path="res://scenes/click_me_button.gd" id="3_2sdm5"]
+[ext_resource type="Script" uid="uid://dfmb112fx74as" path="res://scenes/play_button.gd" id="3_iyajp"]
 
 [node name="Main" type="MarginContainer"]
 anchors_preset = 15
@@ -40,6 +41,7 @@ size_flags_vertical = 6
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Play"
+script = ExtResource("3_iyajp")
 
 [node name="Levels Button" type="Button" parent="HBoxContainer/VBoxContainer/Buttons"]
 layout_mode = 2
