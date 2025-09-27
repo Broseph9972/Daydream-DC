@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dq7ekafj5mu0e"]
 
 [ext_resource type="Script" uid="uid://dwadkoaevwlk0" path="res://scripts/TitleScreen.gd" id="1_aw7pl"]
-[ext_resource type="Texture2D" uid="uid://ylhp3oos7ejr" path="res://icon.svg" id="2_8f6ox"]
+[ext_resource type="Texture2D" uid="uid://ds78tm01o2fhy" path="res://assets/sprites/Logo.aseprite" id="2_83fn4"]
 
 [node name="Title Screen" type="MarginContainer"]
 anchors_preset = 15
@@ -24,7 +24,8 @@ theme_override_constants/separation = 15
 
 [node name="Logo" type="TextureRect" parent="HBoxContainer/VBoxContainer/Title"]
 layout_mode = 2
-texture = ExtResource("2_8f6ox")
+texture = ExtResource("2_83fn4")
+expand_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Title"]
 layout_mode = 2
@@ -72,15 +73,16 @@ text = "V6.7"
 [node name="Authors" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "By Joseph & Devon"
+text = "By Joseph & Devin"
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-texture = ExtResource("2_8f6ox")
+texture = ExtResource("2_83fn4")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Levels Button" to="." method="_on_levels_button_pressed"]
