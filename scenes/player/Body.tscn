@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://du0cqjqgwbi7d"]
+
+[ext_resource type="SpriteFrames" uid="uid://de2bltsft71k7" path="res://assets/sprites/player.aseprite" id="1_ttmnf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqulx"]
+size = Vector2(16, 17)
+
+[node name="Body" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_fqulx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = ExtResource("1_ttmnf")
+animation = &"Dead"

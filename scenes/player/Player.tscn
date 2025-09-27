@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx3mm8s8ijq7v"]
+
+[ext_resource type="Script" uid="uid://bjn8487jopxsc" path="res://scripts/Player.gd" id="1_0abc1"]
+[ext_resource type="SpriteFrames" uid="uid://de2bltsft71k7" path="res://assets/sprites/player.aseprite" id="2_v6fml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1abc2"]
+size = Vector2(16, 21)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_0abc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1abc2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_v6fml")
+animation = &"Jump"

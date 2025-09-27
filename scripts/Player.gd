@@ -2,38 +2,26 @@ extends CharacterBody2D
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
-const BOX_SIZE = Vector2(32, 32) # Match player size
-const BOX_COLOR = Color(0.2, 0.6, 1.0, 1)
-const BOX_SPAWN_OFFSET = Vector2(0, 32)
+const BODY_SPAWN_OFFSET = Vector2(0, -10)
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+var body_scene = preload("res://scenes/player/Body.tscn")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var starting_position = Vector2.ZERO
+
+func _ready() -> void:
+	starting_position = global_position
 
 func _spawn_box():
 	if LevelManager.use_clone():
-		var box = RigidBody2D.new()
-		box.position = global_position + BOX_SPAWN_OFFSET
-		box.linear_velocity = velocity # Give box current player velocity
-		var shape = RectangleShape2D.new()
-		shape.size = BOX_SIZE
-		var collision = CollisionShape2D.new()
-		collision.shape = shape
-		box.add_child(collision)
-		var rect = ColorRect.new()
-		rect.color = BOX_COLOR
-		rect.anchor_left = 0.5
-		rect.anchor_top = 0.5
-		rect.anchor_right = 0.5
-		rect.anchor_bottom = 0.5
-		rect.offset_left = -BOX_SIZE.x/2
-		rect.offset_top = -BOX_SIZE.y/2
-		rect.offset_right = BOX_SIZE.x/2
-		rect.offset_bottom = BOX_SIZE.y/2
-		box.add_child(rect)
-		get_tree().current_scene.add_child(box)
+		var body = body_scene.instantiate()
+		body.global_position = global_position + BODY_SPAWN_OFFSET
+		body.linear_velocity = velocity
+
 		# Reset player position to start
-		global_position = Vector2(400, 500)
+		global_position = starting_position
 		velocity = Vector2.ZERO
+
+		get_tree().current_scene.add_child(body)
 
 func _physics_process(delta):
 	# Add the gravity.

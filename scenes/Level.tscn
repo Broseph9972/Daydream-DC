@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c9x8y7z6a5b4c3d2"]
+[gd_scene load_steps=5 format=3 uid="uid://wfj6b11wkwx2"]
 
-[ext_resource type="PackedScene" uid="uid://b8x7y2z1a3b4c5d6" path="res://scenes/Player.tscn" id="1_0abc1"]
+[ext_resource type="PackedScene" uid="uid://bx3mm8s8ijq7v" path="res://scenes/player/Player.tscn" id="1_0abc1"]
 [ext_resource type="PackedScene" path="res://scenes/clone_counter.tscn" id="2_clone1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1abc2"]
@@ -14,7 +14,7 @@ size = Vector2(100, 32)
 [node name="CloneCounter" parent="." instance=ExtResource("2_clone1")]
 
 [node name="Player" parent="." instance=ExtResource("1_0abc1")]
-position = Vector2(400, 500)
+position = Vector2(400, 467)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(400, 500)
@@ -32,6 +32,8 @@ offset_left = -100.0
 offset_top = -16.0
 offset_right = 100.0
 offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.4, 0.8, 0.2, 1)
 
 [node name="Platform1" type="StaticBody2D" parent="."]
