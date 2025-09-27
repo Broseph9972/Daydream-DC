@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0x9y8z7a6b5c4d3"]
+
+[ext_resource type="PackedScene" uid="uid://c9x8y7z6a5b4c3d2" path="res://scenes/Level.tscn" id="1_0abc1"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource("1_0abc1")]
+
+[node name="Camera2D" type="Camera2D" parent="Level/Player"]
+enabled = true
