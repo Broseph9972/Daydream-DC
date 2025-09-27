@@ -1,17 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq7ekafj5mu0e"]
+[gd_scene load_steps=3 format=3 uid="uid://dq7ekafj5mu0e"]
 
-[ext_resource type="Script" uid="uid://dwadkoaevwlk0" path="res://scripts/Title.gd" id="1_3pqwv"]
-[ext_resource type="Texture2D" uid="uid://ylhp3oos7ejr" path="res://icon.svg" id="1_ascc0"]
-[ext_resource type="Script" uid="uid://qo0ig7bc081s" path="res://scenes/click_me_button.gd" id="3_2sdm5"]
-[ext_resource type="Script" uid="uid://dfmb112fx74as" path="res://scenes/play_button.gd" id="3_iyajp"]
+[ext_resource type="Script" uid="uid://dwadkoaevwlk0" path="res://scripts/TitleScreen.gd" id="1_aw7pl"]
+[ext_resource type="Texture2D" uid="uid://ylhp3oos7ejr" path="res://icon.svg" id="2_8f6ox"]
 
-[node name="Main" type="MarginContainer"]
+[node name="Title Screen" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3pqwv")
+script = ExtResource("1_aw7pl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -26,7 +24,7 @@ theme_override_constants/separation = 15
 
 [node name="Logo" type="TextureRect" parent="HBoxContainer/VBoxContainer/Title"]
 layout_mode = 2
-texture = ExtResource("1_ascc0")
+texture = ExtResource("2_8f6ox")
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Title"]
 layout_mode = 2
@@ -38,27 +36,29 @@ layout_mode = 2
 size_flags_vertical = 6
 
 [node name="Play Button" type="Button" parent="HBoxContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Play"
-script = ExtResource("3_iyajp")
 
 [node name="Levels Button" type="Button" parent="HBoxContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Levels
 "
 
 [node name="Options Button" type="Button" parent="HBoxContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Options"
 
-[node name="Click Me Button" type="Button" parent="HBoxContainer/VBoxContainer/Buttons"]
+[node name="Quit Button" type="Button" parent="HBoxContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Click me (reccomended)"
-script = ExtResource("3_2sdm5")
+text = "Quit"
 
 [node name="Info" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -80,6 +80,9 @@ size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
 layout_mode = 2
-texture = ExtResource("1_ascc0")
+texture = ExtResource("2_8f6ox")
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Click Me Button" to="HBoxContainer/VBoxContainer/Buttons/Click Me Button" method="_on_click_me_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Levels Button" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Options Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Quit Button" to="." method="_on_quit_button_pressed"]
