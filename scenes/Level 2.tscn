@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://buqr4q0jasy6b"]
+
+[ext_resource type="PackedScene" uid="uid://bx3mm8s8ijq7v" path="res://scenes/Player.tscn" id="1_jak5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx361"]
+size = Vector2(200, 32)
+
+[node name="Level" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(101, 630)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(54, -490)
+shape = SubResource("RectangleShape2D_nx361")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -506.0
+offset_right = 154.0
+offset_bottom = -474.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4, 0.8, 0.2, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_jak5y")]
+position = Vector2(163, 74)
