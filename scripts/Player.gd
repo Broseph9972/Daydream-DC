@@ -11,17 +11,16 @@ var starting_position = Vector2.ZERO
 func _ready() -> void:
 	starting_position = global_position
 
-func _spawn_box():
-	if LevelManager.use_clone():
-		var body = body_scene.instantiate()
-		body.global_position = global_position + BODY_SPAWN_OFFSET
-		body.linear_velocity = velocity
+func kill():
+	var body = body_scene.instantiate()
+	body.global_position = global_position + BODY_SPAWN_OFFSET
+	body.linear_velocity = velocity
 
-		# Reset player position to start
-		global_position = starting_position
-		velocity = Vector2.ZERO
+	# Reset player position to start
+	global_position = starting_position
+	velocity = Vector2.ZERO
 
-		get_tree().current_scene.add_child(body)
+	get_tree().current_scene.add_child(body)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -32,14 +31,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Spawn box on N key
-	if Input.is_action_just_pressed("spawn_box"):
-		_spawn_box()
-
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction == 0:
-		direction = Input.get_axis("left", "right") # Arrow keys
+		pass
+		#direction = Input.get_axis("left", "right") # Arrow keys
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
