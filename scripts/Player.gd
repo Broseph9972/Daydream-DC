@@ -43,12 +43,14 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Spawn box on Enter key
-	if Input.is_action_just_pressed("ui_accept"):
+	# Spawn box on N key
+	if Input.is_action_just_pressed("spawn_box"):
 		_spawn_box()
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction == 0:
+		direction = Input.get_axis("left", "right") # Arrow keys
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
